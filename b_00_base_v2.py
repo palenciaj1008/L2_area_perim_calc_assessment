@@ -101,7 +101,7 @@ while True:
                                       int)
 
     if questions_amount == "xxx":
-        print("Please use this tool ONCE\n")
+        print("Please use this tool at least ONCE\n")
 
     else:
         break
@@ -121,6 +121,9 @@ while end_tool != "yes":
     ask_shape = shape("What shape do you need help with? ", "Please enter 'circle', "
                                                             "'triangle', 'square', 'rectangle'")
 
+    if ask_shape == "xxx":
+        break
+
     print(f"\nYou chose {ask_shape}.\n")
 
     if ask_shape == "circle":
@@ -128,6 +131,7 @@ while end_tool != "yes":
                                 "Please enter a valid number (>0)", float)
         area = math.pi * radius ** 2
         circumference = 2 * math.pi * radius
+        print(f"The area is: {area} | The circumference is  {circumference})")
 
     elif ask_shape == "triangle":
         side_a = number_checker("What is the length of side 'a'? ",
@@ -142,6 +146,7 @@ while end_tool != "yes":
         s = (side_a + side_b + side_c) / 2
         area = math.sqrt(s(s - side_a)(s - side_b)(s - side_c))
         perimeter = side_a + side_b + side_c
+        print(f"The area is: {area} | The perimeter is  {perimeter})")
 
     elif ask_shape == "square":
         side = number_checker("What is the length of one side? ",
@@ -149,6 +154,7 @@ while end_tool != "yes":
 
         area = side ** 2
         perimeter = 4 * side
+        print(f"The area is: {area} | The perimeter is  {perimeter})")
 
     else:
         length = number_checker("What is the length? ",
@@ -159,5 +165,9 @@ while end_tool != "yes":
 
         area = length * width
         perimeter = 2 * length + 2 * width
+        print(f"The area is: {area} | The perimeter is  {perimeter})")
+
+    if questions_amount == questions_answered:
+        break
 
 # NOTE: ask user what shape they want, then ask for dimensions, then what they want to know
