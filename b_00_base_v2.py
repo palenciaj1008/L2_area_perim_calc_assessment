@@ -13,7 +13,7 @@ def number_checker(question, error, input_type):
             continue
 
         elif response == "":
-            return response  # This will represent infinite mode
+            return response
 
         else:
             try:
@@ -26,12 +26,6 @@ def number_checker(question, error, input_type):
 
             except ValueError:
                 print(error)
-
-# Usage in your main code
-
-
-questions_amount = number_checker("How many questions do you have? <ENTER> for infinite mode: ",
-                                  "Please enter a valid number greater than 0.\n", int)
 
 
 def shape(question, error):
@@ -95,9 +89,10 @@ while True:
         break
 
     else:
-        print("Enjoy the ease of calculations!\n")
+        print("Enjoy the tool's aide!\n")
         break
 
+# Variable place holder
 questions_answered = 0
 
 while True:
@@ -111,8 +106,8 @@ while True:
     else:
         break
 
-end_calculations = "no"
-while end_calculations != "yes":
+end_tool = "no"
+while end_tool != "yes":
     questions_answered += 1
 
     if questions_amount == "":
@@ -123,7 +118,46 @@ while end_calculations != "yes":
 
     print(heading)
 
-    ask_shape = shape
-    print()
+    ask_shape = shape("What shape do you need help with? ", "Please enter 'circle', "
+                                                            "'triangle', 'square', 'rectangle'")
+
+    print(f"\nYou chose {ask_shape}.\n")
+
+    if ask_shape == "circle":
+        radius = number_checker("What is the radius of the circle? ",
+                                "Please enter a valid number (>0)", float)
+        area = math.pi * radius ** 2
+        circumference = 2 * math.pi * radius
+
+    elif ask_shape == "triangle":
+        side_a = number_checker("What is the length of side 'a'? ",
+                                "Please enter a valid number (>0)", float)
+
+        side_b = number_checker("What is the length of side 'b'? ",
+                                "Please enter a valid number (>0)", float)
+
+        side_c = number_checker("What is the length of side 'c'? ",
+                                "Please enter a valid number (>0)", float)
+
+        s = (side_a + side_b + side_c) / 2
+        area = math.sqrt(s(s - side_a)(s - side_b)(s - side_c))
+        perimeter = side_a + side_b + side_c
+
+    elif ask_shape == "square":
+        side = number_checker("What is the length of one side? ",
+                              "Please enter a valid number (>0)", float)
+
+        area = side ** 2
+        perimeter = 4 * side
+
+    else:
+        length = number_checker("What is the length? ",
+                                "Please enter a valid number (>0)", float)
+
+        width = number_checker("What is the width? ",
+                               "Please enter a valid number (>0)", float)
+
+        area = length * width
+        perimeter = 2 * length + 2 * width
 
 # NOTE: ask user what shape they want, then ask for dimensions, then what they want to know
