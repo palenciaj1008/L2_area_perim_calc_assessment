@@ -9,8 +9,7 @@ def number_checker(question, error, input_type):
         response = input(question)
 
         if response.lower() == "xxx":
-            print("Please use the tool at least ONCE\n")
-            continue
+            return response
 
         elif response == "":
             return response
