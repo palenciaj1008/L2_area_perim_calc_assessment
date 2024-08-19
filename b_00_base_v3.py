@@ -86,16 +86,14 @@ while True:
         print("Use this tool at least ONCE\n")
         continue
 
-    elif questions_amount.isdigit() and int(questions_amount) >= 25:
+    elif questions_amount >= 25:
         print("Please use <INFINITE> mode instead")
         continue
 
-    elif questions_amount.isdigit():
-        questions_amount = int(questions_amount)
+    elif questions_amount == "":
         break
 
     else:
-        questions_amount = ""  # Infinite mode
         break
 
 end_tool = "no"
