@@ -6,10 +6,10 @@ def number_checker(question, error, input_type):
     while True:
         response = input(question)
 
-        if response.lower() == "xxx":
+        if response == "xxx" or response == "":
             return response
 
-        else:
+        elif response != "":
             try:
                 response = input_type(response)
 
@@ -24,6 +24,7 @@ def number_checker(question, error, input_type):
                 print(error)
                 continue
 
+        return response
 
 def shape(question, error):
     while True:
@@ -80,18 +81,20 @@ while True:
 questions_answered = 0
 
 while True:
-    questions_amount = input("How many questions do you have? (Press <ENTER> for infinite mode): ")
+    questions_amount = number_checker("How many questions do you have, <ENTER> if you don't know and it will go until "
+                                      "stopped: ", "Please enter a valid integer (more than 0)\n",
+                                      int)
 
-    if questions_amount.lower() == "xxx":
+    if questions_amount == "xxx":
         print("Use this tool at least ONCE\n")
-        continue
-
-    elif questions_amount >= 25:
-        print("Please use <INFINITE> mode instead")
         continue
 
     elif questions_amount == "":
         break
+
+    elif questions_amount >= 25:
+        print("Please use <INFINITE> mode instead\n")
+        continue
 
     else:
         break
