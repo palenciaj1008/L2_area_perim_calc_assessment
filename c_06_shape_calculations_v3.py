@@ -32,7 +32,7 @@ def yes_no(question):
         print("Please enter a valid response (yes / no)\n")
 
 
-def triangle(know_sides=True, side_a=True, side_b=True, side_c=True, base=True, height=True):
+def triangle(know_sides, side_a=None, side_b=None, side_c=None, base=None, height=None):
 
     if know_sides:
 
@@ -61,12 +61,12 @@ if ask_user == "yes":
     side_a = number_checker("What is the length of side a? ", "Not valid", float)
     side_b = number_checker("What is the length of side b? ", "Not valid", float)
     side_c = number_checker("What is the length of side c? ", "Not valid", float)
-    answers = triangle(know_sides=True, side_a=True, side_b=True, side_c=True, base=False, height=False)
+    answers = triangle(know_sides=True, side_a=side_a, side_b=side_b, side_c=side_c)
 
 elif ask_user == "no":
     base = number_checker("What is the base of the triangle? ", "Not valid", float)
     height = number_checker("What is the height of the triangle? ", "Not valid", float)
-    answers = triangle(know_sides=False, side_a=False, side_b=False, side_c=False, base=True, height=True)
+    answers = triangle(know_sides=False, base=base, height=height)
 
 else:
     answers = "Invalid input. Could not calculate the area or perimeter."
