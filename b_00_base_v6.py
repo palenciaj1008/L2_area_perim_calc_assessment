@@ -126,7 +126,8 @@ while True:
               "This program allows the user to calculate the perimeter and area of simple shapes.\n"
               "First, input the number of questions you need help with, or <ENTER> if you don't know how many, then\n"
               "simply input the dimensions of the shape(s) and the perimeter, area, or even both will be calculated.\n"
-              "At the end, a summary will be given of all the shapes, along with the calculations.\n")
+              "At the end, a summary will be given of all the shapes, along with the calculations.\n"
+              "Note - Possible shapes are: Circle, Triangle, Square, Rectangle\n")
         break
 
     else:
