@@ -34,7 +34,7 @@ def number_checker(question, error, input_type):
         return response
 
 
-# Checks what shape the user responds with...
+# Checks the users input - depends on the list, outputs appropriate responses, and / or errors...
 def user_input(question, error, valid_list):
     while True:
         response = input(question).lower()
@@ -81,12 +81,11 @@ def triangle(know_sides, side_a=None, side_b=None, side_c=None, base=None, heigh
 
     else:
         area = 0.5 * base * height
-        perimeter = "Unknown - cannot be calculated with given measurements..."
+        perimeter = "Unknown - cannot be given..."
         return f"AREA: {area}U^2 | PERIMETER: {perimeter}U"
 
 
-# Main routine
-
+# Main routine...
 # Lists for all valid inputs / responses...
 shape_list = ["circle", "triangle", "square", "rectangle", "xxx"]
 yesno_list = ["yes", "no", "xxx"]
@@ -181,7 +180,7 @@ while end_tool != "yes":
 
     # Circle section, asks for radius - used in calculations, quits if "xxx"
     if shape_select == "circle":
-        radius = number_checker("What is the radius? ", "Not valid", float)
+        radius = number_checker("What is the radius? ", "Enter a valid number (> 0)", float)
 
         if radius == "xxx":
             break
@@ -197,17 +196,17 @@ while end_tool != "yes":
 
         # Heron's law works if user knows all 3 sides, gives area and perimeter
         if ask_user == "yes":
-            side_a = number_checker("What is the length of side a? ", "Not valid", float)
+            side_a = number_checker("What is the length of side a? ", "Enter a valid number (> 0)", float)
 
             if side_a == "xxx":
                 break
 
-            side_b = number_checker("What is the length of side b? ", "Not valid", float)
+            side_b = number_checker("What is the length of side b? ", "Enter a valid number (> 0)", float)
 
             if side_b == "xxx":
                 break
 
-            side_c = number_checker("What is the length of side c? ", "Not valid", float)
+            side_c = number_checker("What is the length of side c? ", "Enter a valid number (> 0)", float)
 
             if side_c == "xxx":
                 break
@@ -218,12 +217,12 @@ while end_tool != "yes":
 
         # Base and height only give area, cannot give perimeter
         elif ask_user == "no":
-            base = number_checker("What is the base of the triangle? ", "Not valid", float)
+            base = number_checker("What is the base of the triangle? ", "Enter a valid number (> 0)", float)
 
             if base == "xxx":
                 break
 
-            height = number_checker("What is the height of the triangle? ", "Not valid", float)
+            height = number_checker("What is the height of the triangle? ", "Enter a valid number (> 0)", float)
 
             if height == "xxx":
                 break
@@ -237,7 +236,7 @@ while end_tool != "yes":
 
     # Square section, asks user for a side length, gives area and perimeter, "xxx" = quit
     elif shape_select == "square":
-        side = number_checker("What is the length of any side? ", "Not valid", float)
+        side = number_checker("What is the length of any side? ", "Enter a valid number (> 0)", float)
 
         if side == "xxx":
             break
@@ -248,12 +247,12 @@ while end_tool != "yes":
 
     # Rectangle section, asks for the length and width, gives are and perimeter, "xxx" to quit
     else:
-        length = number_checker("What is the length of the rectangle? ", "Not valid", float)
+        length = number_checker("What is the length of the rectangle? ", "Enter a valid number (> 0)", float)
 
         if length == "xxx":
             break
 
-        width = number_checker("What is the width of the rectangle? ", "Not valid", float)
+        width = number_checker("What is the width of the rectangle? ", "Enter a valid number (> 0)", float)
 
         if width == "xxx":
             break
