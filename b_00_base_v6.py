@@ -77,12 +77,11 @@ def triangle(know_sides, side_a=None, side_b=None, side_c=None, base=None, heigh
         s = (side_a + side_b + side_c) / 2
         area = round(math.sqrt(s * (s - side_a) * (s - side_b) * (s - side_c)), 2)
         perimeter = round(side_a + side_b + side_c, 2)
-        return f"AREA: {area}U^2 | PERIMETER: {perimeter}U^2"
+        return f"AREA: {area}U^2 | PERIMETER: {perimeter}U"
 
     else:
         area = 0.5 * base * height
-        perimeter = "Unknown - cannot be given..."
-        return f"AREA: {area}U^2 | PERIMETER: {perimeter}U"
+        return f"AREA: {area}U^2 | PERIMETER: {"Unknown - cannot be given..."}"
 
 
 # Main routine...
@@ -176,7 +175,7 @@ while end_tool != "yes":
         break
 
     # Prints what shape they have decided - makes it clear to user
-    print(f"\n--- You chose {shape_select} ---\n")
+    print(f"\n|----- You chose {shape_select} -----|\n")
 
     # Circle section, asks for radius - used in calculations, quits if "xxx"
     if shape_select == "circle":
@@ -194,8 +193,15 @@ while end_tool != "yes":
         ask_user = user_input("Do you know all three sides (y / n)? ",
                               "Please input 'y' / 'n'", yesno_list)
 
+        # Ends program when exit code used
+        if ask_user == "xxx":
+            break
+
         # Heron's law works if user knows all 3 sides, gives area and perimeter
-        if ask_user == "yes":
+        elif ask_user == "yes":
+
+            print("\n(---- Heron's Law Triangle ----)")
+
             side_a = number_checker("What is the length of side a? ", "Enter a valid number (> 0)", float)
 
             if side_a == "xxx":
@@ -217,6 +223,7 @@ while end_tool != "yes":
 
         # Base and height only give area, cannot give perimeter
         elif ask_user == "no":
+            print("\n(---- Standard Triangle ----)")
             base = number_checker("What is the base of the triangle? ", "Enter a valid number (> 0)", float)
 
             if base == "xxx":
@@ -231,6 +238,7 @@ while end_tool != "yes":
             print(f"\n** You said the base: {base}, and height: {height} **\n")
             answers = triangle(know_sides=False, base=base, height=height)
 
+        # Controls whether program continues processing shapes, or not
         else:
             end_tool = "yes"
 
