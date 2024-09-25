@@ -11,7 +11,7 @@ def number_checker(question, error, input_type):
         response = input(question)
 
         # Checks for exit code / blank space for <INFINITE>
-        if response == "xxx" or response == "":
+        if response == "xxx":
             return response
 
         # When the user inputs a number or integer / a valid input
@@ -88,7 +88,6 @@ def triangle(know_sides, side_a=None, side_b=None, side_c=None, base=None, heigh
 # Lists for all valid inputs / responses...
 shape_list = ["circle", "triangle", "square", "rectangle", "xxx"]
 yesno_list = ["yes", "no", "xxx"]
-calc_list = ["area", "perimeter", "both", "xxx"]
 
 # Dictionaries and lists - for pandas / dataframe
 shapes_selected_list = []
