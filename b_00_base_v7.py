@@ -341,4 +341,3 @@ else:
 
 # Thanks user for using program...
 print("\nThank you for using this tool!")
-n
